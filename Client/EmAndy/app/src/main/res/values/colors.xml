@@ -3,4 +3,49 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="idolproj_black_a">#333333</color>
+    <color name="idolproj_black_b">#8a9294</color>
+    <color name="idolproj_black_c">#666666</color>
+    <color name="idolproj_black_d">#c0982d</color>
+    <color name="idolproj_black_e">#565d62</color>
+    <color name="idolproj_black_f">#202223</color>
+    <color name="idolproj_black_g">#191a1b</color>
+    <color name="idolproj_black_h">#191a1b</color>
+    <color name="idolproj_gray_a">#999999</color>
+    <color name="idolproj_gray_b_line">#e5e5e5</color>
+    <color name="idolproj_gray_b_line2">#555555</color>
+    <color name="idolproj_gray_c">#d0d3d4</color>
+    <color name="idolproj_gray_d">#f3f4f8</color>
+    <color name="idolproj_gray_e">#f2f4f6</color>
+    <color name="idolproj_gray_f">#cccccc</color>
+    <color name="idolproj_green_a">#00a8ff</color>
+    <color name="idolproj_red_a">#f94e66</color>
+    <color name="idolproj_red_b">#ff4052</color>
+    <color name="idolproj_red_c">#ff7676</color>
+    <color name="idolproj_black">#000000</color>
+    <color name="idolproj_blue">#3bbffc</color>
+    <color name="idolproj_blue_b">#00a8ff</color>
+    <color name="idolproj_yellow">#ffd600</color>
+    <color name="idolproj_yellow2">#e7b314</color>
+    <color name="idolproj_orange">#ff6000</color>
+    <color name="idolproj_orange_a">#ffd600</color>
+    <color name="idolproj_orange_b">#e7b314</color>
+    <color name="idolproj_white_aa">#15ffffff</color>
+    <color name="idolproj_listdivider">#c0c0c0</color>
+    <color name="idolproj_white3">#f5f5f5</color>
+    <color name="idolproj_transparent">#ffffff</color>
+    <color name="idolproj_transparent2">#00000000</color>
+    <color name="idolproj_list_press">#198a9294</color>
+    <color name="theme_color">#33BBFF</color>
+    <color name="idolproj_transparent3">#aa000000</color>
+
+    <color name="home_redtext_color">#fe4052</color>
+
+    <color name="search_history_bg">#e3e2e0</color> <!-- 搜索历史背景色 -->
+
+
+    <color name="default_circle_indicator_stroke_color">#ffffff</color><!-- 边框 -->
+    <color name="default_circle_indicator_fill_color">#ffffff</color><!-- 选中 -->
+    <color name="default_circle_indicator_page_color">#000000</color><!-- 未选中 -->
 </resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/navigationBar"
+    android:layout_width="match_parent"
+    android:layout_height="48dip"
+    android:background="@color/idolproj_transparent" >
+
+    <ImageView
+        android:id="@+id/btnLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:src="@mipmap/back"
+        android:background="@drawable/andy_btn_bg"
+        android:clickable="false"
+        android:focusable="false"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical" />
+
+    <Button
+        android:id="@+id/btnRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dip"
+        android:background="@color/idolproj_transparent2"
+        android:gravity="center"
+        android:padding="5dip"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        />
+
+    <ImageView
+        android:id="@+id/imageButtonRight"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/andy_btn_bg"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:clickable="false"
+        android:focusable="false"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/idolproj_black"
+        android:text="baseTitle"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/idolproj_gray_b_line"
+       />
+</RelativeLayout>
