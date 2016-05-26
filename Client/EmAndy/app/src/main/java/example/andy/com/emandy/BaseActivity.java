@@ -19,6 +19,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.umeng.analytics.MobclickAgent;
+
 import example.andy.com.emandy.Customs.SystemBarTintManager;
 
 /**
@@ -37,6 +40,8 @@ public class BaseActivity extends AppCompatActivity {
     protected float DefaultAlpha = 0.0F;
     protected boolean isLoading = false;
 
+    protected ImageLoader imageLoader;
+
     public boolean isLoading() {
         return isLoading;
     }
@@ -51,10 +56,12 @@ public class BaseActivity extends AppCompatActivity {
 
     public void onResume() {
         super.onResume();
+        MobclickAgent.onResume(this);
     }
 
     public void onPause() {
         super.onPause();
+        MobclickAgent.onPause(this);
     }
 
     /**
@@ -77,6 +84,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
+        imageLoader = ImageLoader.getInstance();
         initContentView();
         // initSysTitle();
         initTitleBar();

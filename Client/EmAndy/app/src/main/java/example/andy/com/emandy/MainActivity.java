@@ -3,22 +3,30 @@ package example.andy.com.emandy;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.LoopPagerAdapter;
 import com.jude.rollviewpager.hintview.IconHintView;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener{
 
-    RollPagerView mRollPagerView;
+    private RollPagerView mRollPagerView;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTextTitle("首页");
         setContentView(R.layout.activity_main);
+        initViews();
         initRollPager();
+    }
+
+    private void initViews(){
+        button = (Button) findViewById(R.id.testServer);
+        button.setOnClickListener(this);
     }
 
     //初始化rollpager
@@ -28,6 +36,19 @@ public class MainActivity extends BaseActivity {
         mRollPagerView.setAnimationDurtion(500);
         mRollPagerView.setAdapter(new LooperAdapter(mRollPagerView));
         mRollPagerView.setHintView(new IconHintView(this, R.drawable.point_focus, R.drawable.point_normal));
+    }
+
+    /**
+     * Called when a view has been clicked.
+     *
+     * @param v The view that was clicked.
+     */
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if(id == R.id.testServer){
+            OkhttpHelper._get("http://139.196.80.65:56520/common/banner/list");
+        }
     }
 
     private class LooperAdapter extends LoopPagerAdapter{
