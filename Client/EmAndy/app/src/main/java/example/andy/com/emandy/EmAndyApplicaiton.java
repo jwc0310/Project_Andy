@@ -5,9 +5,9 @@ import android.app.Application;
 /**
  * Created by Andy on 16/5/25.
  */
-public class EmAndyApplicaiton extends Application {
+public class EmandyApplicaiton extends Application {
 
-    public static EmAndyApplicaiton appInstance;
+    public static EmandyApplicaiton appInstance;
 
     @Override
     public void onCreate() {

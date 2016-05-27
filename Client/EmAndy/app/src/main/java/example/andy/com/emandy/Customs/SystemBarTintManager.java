@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package example.andy.com.emandy.Customs;
+package example.andy.com.emandy.customs;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

@@ -22,7 +22,7 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.analytics.MobclickAgent;
 
-import example.andy.com.emandy.Customs.SystemBarTintManager;
+import example.andy.com.emandy.customs.SystemBarTintManager;
 
 /**
  * Created by robert on 15/7/24.
@@ -256,17 +256,8 @@ public class BaseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             ViewGroup.MarginLayoutParams params = (MarginLayoutParams) view
                     .getLayoutParams();
-            // int w = View.MeasureSpec.makeMeasureSpec(0,
-            // View.MeasureSpec.UNSPECIFIED);
-            // int h = View.MeasureSpec.makeMeasureSpec(0,
-            // View.MeasureSpec.UNSPECIFIED);
-            // view.measure(w, h);
-            // int height = view.getMeasuredHeight();
-            // // params.setMargins(0, getStatusBarHeight(),0,0);
-            // params.height = height + getStatusBarHeight();
             params.setMargins(0, getStatusBarHeight(), 0, 0);
             view.setLayoutParams(params);
-            // tintManager.setStatusBarAlpha(DefaultAlpha);
         }
 
     }
@@ -293,7 +284,6 @@ public class BaseActivity extends AppCompatActivity {
                     .getLayoutParams();
             ((MarginLayoutParams) params).setMargins(0, 0, 0, 0);
             contentLayout.setLayoutParams(params);
-            // tintManager.setStatusBarAlpha(1.0F);
         }
     }
 
