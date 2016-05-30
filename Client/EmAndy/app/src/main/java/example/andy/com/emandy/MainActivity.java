@@ -17,6 +17,8 @@ import java.util.List;
 import example.andy.com.emandy.callback.RequestCallback;
 import example.andy.com.emandy.entity.BannerData;
 import example.andy.com.emandy.entity.BannerEntity;
+import example.andy.com.emandy.entity.BaseEntity;
+import example.andy.com.emandy.entity.LevelGrowEntity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
 
@@ -80,12 +82,58 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             }
         });
     }
-
+    int suffix = 1;
     @Override
     public void onClick(View v) {
         int id = v.getId();
         if(id == R.id.testServer){
+            OkhttpHelper.getMilestone(mContext, "213778", "", 0, 30, new RequestCallback<LevelGrowEntity>(){
 
+                @Override
+                public void onSuccess(LevelGrowEntity response) {
+
+                }
+
+                @Override
+                public void onFailure(int errorCode, String errorReason) {
+
+                }
+            });
+            OkhttpHelper.zanOnLive(mContext, "201603282211010410000000005", "484b22f92ca14547b101550989e83c82", new RequestCallback<BaseEntity>() {
+                @Override
+                public void onSuccess(BaseEntity response) {
+                    Log.e("Andy", response.getCode()+" "+response.getDesc());
+                }
+
+                @Override
+                public void onFailure(int errorCode, String errorReason) {
+                    Log.e("Andy", errorCode + " "+errorReason);
+                }
+            });
+
+            OkhttpHelper.ModifyUserInfo(mContext, "nickName", "chen4321"+(suffix++), new RequestCallback<BaseEntity>() {
+                @Override
+                public void onSuccess(BaseEntity response) {
+                    Log.e("Andy", response.getCode()+" "+response.getDesc());
+                }
+
+                @Override
+                public void onFailure(int errorCode, String errorReason) {
+                    Log.e("Andy", errorCode + " "+errorReason);
+                }
+            });
+
+            OkhttpHelper.cancleFocus(mContext, "213771".trim(), new RequestCallback<BaseEntity>() {
+                @Override
+                public void onSuccess(BaseEntity response) {
+                    Log.e("Andy", response.getCode()+" "+response.getDesc());
+                }
+
+                @Override
+                public void onFailure(int errorCode, String errorReason) {
+                    Log.e("Andy", errorCode + " "+errorReason);
+                }
+            });
         }
     }
 
