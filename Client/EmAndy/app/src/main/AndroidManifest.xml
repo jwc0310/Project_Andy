@@ -22,6 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".Vitamio"></activity>
+
         <meta-data android:value="5746704de0f55a9e30000b03" android:name="UMENG_APPKEY"></meta-data>
         <meta-data android:value="debug" android:name="UMENG_CHANNEL"></meta-data>
     </application>

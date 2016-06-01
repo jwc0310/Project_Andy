@@ -39,6 +39,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import example.andy.com.emandy.base.BaseActivity;
 import example.andy.com.emandy.callback.RequestCallback;
 import example.andy.com.emandy.entity.BannerData;
 import example.andy.com.emandy.entity.BannerEntity;

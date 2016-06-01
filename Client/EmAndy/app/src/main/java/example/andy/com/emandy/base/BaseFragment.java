@@ -1,4 +1,4 @@
-package example.andy.com.emandy;
+package example.andy.com.emandy.base;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
+
+import example.andy.com.emandy.LoadingDialog;
+import example.andy.com.emandy.base.BaseActivity;
 
 /**
  * Created by Andy on 16/5/26.

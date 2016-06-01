@@ -1,4 +1,4 @@
-package example.andy.com.emandy;
+package example.andy.com.emandy.base;
 
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
