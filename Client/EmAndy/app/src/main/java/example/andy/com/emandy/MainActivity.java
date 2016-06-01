@@ -6,8 +6,12 @@ package example.andy.com.emandy;
  * pulltorefresh
  */
 
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -17,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -32,6 +37,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import example.andy.com.emandy.callback.RequestCallback;
 import example.andy.com.emandy.entity.BannerData;
@@ -54,11 +60,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private ArrayAdapter<String> mAdapter;
     private ListView actualListView;
 
+    //toolbar 和 drawerLayout
+    private Toolbar toolbar;
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mDrawerToggle;
+    private ListView lvLeftMenu;
+    private String[] lvs = {"List Item 01", "List Item 02", "List Item 03", "List Item 04"};
+    private ArrayAdapter arrayAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTextTitle("首页");
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_entry);
         initViews();
         initData();
     }
@@ -66,9 +80,40 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private void initViews(){
         button = (Button) findViewById(R.id.testServer);
         button.setOnClickListener(this);
+        initToolbarAndDrawer();
         initRollPager();
         initPullToRefresh();
     }
+
+    private void initToolbarAndDrawer(){
+        toolbar = (Toolbar) findViewById(R.id.tb_custom);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_left);
+        lvLeftMenu = (ListView) findViewById(R.id.lv_left_menu);
+
+        toolbar.setTitle(R.string.toolbar_title);
+        toolbar.setTitleTextColor(Color.parseColor("#ffffff"));
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //创建返回键，并实现打开关/闭监听
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.open, R.string.close) {
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+            }
+        };
+        mDrawerToggle.syncState();
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lvs);
+        lvLeftMenu.setAdapter(arrayAdapter);
+    }
+
     //初始化PullToRefresh
     private void initPullToRefresh(){
         mPullToRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
@@ -199,6 +244,39 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 Log.e("Andy", errorCode + " "+errorReason);
             }
         });
+    }
+
+    private class ToolbarAdapter extends BaseAdapter {
+
+        List<Map<String, Object>> data;
+
+        public ToolbarAdapter(List<Map<String, Object>> data){
+            this.data = data;
+        }
+
+        public void updateAdapter(){
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public int getCount() {
+            return 0;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            return null;
+        }
     }
 
     private class LooperAdapter extends LoopPagerAdapter{
