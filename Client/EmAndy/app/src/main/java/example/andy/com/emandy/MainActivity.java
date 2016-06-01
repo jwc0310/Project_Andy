@@ -6,6 +6,8 @@ package example.andy.com.emandy;
  * pulltorefresh
  */
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +28,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -35,6 +39,7 @@ import com.jude.rollviewpager.hintview.IconHintView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -45,6 +50,7 @@ import example.andy.com.emandy.entity.BannerData;
 import example.andy.com.emandy.entity.BannerEntity;
 import example.andy.com.emandy.entity.BaseEntity;
 import example.andy.com.emandy.entity.LevelGrowEntity;
+import example.andy.com.emandy.opensource.OkhttpHelper;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
 
@@ -67,7 +73,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView lvLeftMenu;
     private String[] lvs = {"List Item 01", "List Item 02", "List Item 03", "List Item 04"};
+    private List<Map<String, Object>> dlList;
     private ArrayAdapter arrayAdapter;
+    private ToolbarAdapter tbAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,8 +119,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mDrawerToggle.syncState();
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lvs);
-        lvLeftMenu.setAdapter(arrayAdapter);
+        dlList = new ArrayList<>();
+        Map<String, Object> tmp = new HashMap<String, Object>();
+        tmp.put("name", "Vitamio");
+        tmp.put("intent", new Intent(MainActivity.this, Vitamio.class));
+
+        dlList.add(tmp);
+        dlList.add(tmp);
+        dlList.add(tmp);
+        dlList.add(tmp);
+        dlList.add(tmp);
+
+        //arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lvs);
+        tbAdapter = new ToolbarAdapter(mContext, dlList);
+        lvLeftMenu.setAdapter(tbAdapter);
+        lvLeftMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity((Intent)dlList.get(position).get("intent"));
+            }
+        });
     }
 
     //初始化PullToRefresh
@@ -249,10 +275,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     private class ToolbarAdapter extends BaseAdapter {
 
-        List<Map<String, Object>> data;
+        private List<Map<String, Object>> data;
+        private Context context;
+        private LayoutInflater inflater;
 
-        public ToolbarAdapter(List<Map<String, Object>> data){
+        public ToolbarAdapter(Context context, List<Map<String, Object>> data){
             this.data = data;
+            this.context = context;
+            inflater = LayoutInflater.from(context);
         }
 
         public void updateAdapter(){
@@ -261,22 +291,48 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
         @Override
         public int getCount() {
-            return 0;
+            return data.size();
         }
 
         @Override
         public Object getItem(int position) {
-            return null;
+            return data.get(position);
         }
 
         @Override
         public long getItemId(int position) {
-            return 0;
+            return position;
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            return null;
+            ViewHolder holder;
+            final Map<String, Object> item = data.get(position);
+            if (null == convertView){
+                holder = new ViewHolder();
+                convertView = LayoutInflater.from(context).inflate(R.layout.view_toolbar_item, null);
+
+                holder.name = (TextView) convertView.findViewById(R.id.classname);
+                holder.arrow = (ImageView) convertView.findViewById(R.id.arrow);
+//                convertView.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        startActivity((Intent)item.get("intent"));
+//                    }
+//                });
+                convertView.setTag(holder);
+
+            }else{
+                holder = (ViewHolder) convertView.getTag();
+            }
+
+            holder.name.setText(item.get("name").toString());
+            return convertView;
+        }
+
+        private class ViewHolder{
+            TextView name;
+            ImageView arrow;
         }
     }
 

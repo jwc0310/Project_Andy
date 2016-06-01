@@ -20,7 +20,9 @@
             android:id="@+id/lv_left_menu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@null"
+            android:divider="@color/idolproj_black_d"
+            android:stackFromBottom="true"
+            android:dividerHeight="2dp"
             android:text="DrawerLayout"/>
 
     </LinearLayout>

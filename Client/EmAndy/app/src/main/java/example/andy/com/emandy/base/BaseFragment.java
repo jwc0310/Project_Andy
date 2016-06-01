@@ -8,8 +8,7 @@ import android.view.ViewGroup;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-import example.andy.com.emandy.LoadingDialog;
-import example.andy.com.emandy.base.BaseActivity;
+import example.andy.com.emandy.dialog.LoadingDialog;
 
 /**
  * Created by Andy on 16/5/26.

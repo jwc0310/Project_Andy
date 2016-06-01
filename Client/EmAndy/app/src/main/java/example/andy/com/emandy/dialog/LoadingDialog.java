@@ -1,4 +1,4 @@
-package example.andy.com.emandy;
+package example.andy.com.emandy.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+
+import example.andy.com.emandy.R;
 
 public class LoadingDialog extends Dialog {
 

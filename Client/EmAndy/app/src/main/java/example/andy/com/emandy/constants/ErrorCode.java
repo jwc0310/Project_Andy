@@ -1,4 +1,4 @@
-package example.andy.com.emandy.callback;
+package example.andy.com.emandy.constants;
 
 /**
  * Created by Andy on 16/5/27.

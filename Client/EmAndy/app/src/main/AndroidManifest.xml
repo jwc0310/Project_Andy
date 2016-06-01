@@ -24,6 +24,8 @@
         </activity>
 
         <activity android:name=".Vitamio"></activity>
+        <activity android:name=".VitamioTest"></activity>
+        <activity android:name=".VitamioTest1"></activity>
 
         <meta-data android:value="5746704de0f55a9e30000b03" android:name="UMENG_APPKEY"></meta-data>
         <meta-data android:value="debug" android:name="UMENG_CHANNEL"></meta-data>

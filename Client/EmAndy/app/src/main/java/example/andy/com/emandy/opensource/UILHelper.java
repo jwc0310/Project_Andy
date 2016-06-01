@@ -1,4 +1,4 @@
-package example.andy.com.emandy;
+package example.andy.com.emandy.opensource;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,6 +14,8 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 import java.util.concurrent.Executor;
+
+import example.andy.com.emandy.R;
 
 /**
  * Created by Andy on 16/5/25.

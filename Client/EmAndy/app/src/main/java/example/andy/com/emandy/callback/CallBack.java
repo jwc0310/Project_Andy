@@ -1,4 +1,4 @@
-package example.andy.com.emandy;
+package example.andy.com.emandy.callback;
 
 /**
  * Created by andy on 16/5/25.

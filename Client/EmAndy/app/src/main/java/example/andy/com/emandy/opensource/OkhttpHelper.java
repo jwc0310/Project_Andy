@@ -1,4 +1,4 @@
-package example.andy.com.emandy;
+package example.andy.com.emandy.opensource;
 
 import android.content.Context;
 import android.util.Log;
@@ -10,7 +10,8 @@ import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
 
-import example.andy.com.emandy.callback.ErrorCode;
+import example.andy.com.emandy.dialog.LoadingDialog;
+import example.andy.com.emandy.constants.ErrorCode;
 import example.andy.com.emandy.callback.RequestCallback;
 import example.andy.com.emandy.callback.ResponseCode;
 import example.andy.com.emandy.entity.BannerEntity;

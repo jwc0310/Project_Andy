@@ -22,8 +22,8 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.analytics.MobclickAgent;
 
-import example.andy.com.emandy.CallBack;
-import example.andy.com.emandy.LoadingDialog;
+import example.andy.com.emandy.callback.CallBack;
+import example.andy.com.emandy.dialog.LoadingDialog;
 import example.andy.com.emandy.R;
 import example.andy.com.emandy.customs.SystemBarTintManager;
 
