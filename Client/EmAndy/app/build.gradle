@@ -31,4 +31,5 @@ dependencies {
     compile project(':rollviewpager')
     compile project(':UIL')
     compile project(':PullToRefresh')
+    compile project(':Vitamio')
 }

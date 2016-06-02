@@ -1,16 +1,11 @@
 package example.andy.com.emandy;
 
-/**
- * 自动滑动的banner
- * okhttp的测试
- * pulltorefresh
- */
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -37,6 +32,7 @@ import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.LoopPagerAdapter;
 import com.jude.rollviewpager.hintview.IconHintView;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -50,9 +46,16 @@ import example.andy.com.emandy.entity.BannerData;
 import example.andy.com.emandy.entity.BannerEntity;
 import example.andy.com.emandy.entity.BaseEntity;
 import example.andy.com.emandy.entity.LevelGrowEntity;
+import example.andy.com.emandy.module_vitamio.PlayerActivity;
+import example.andy.com.emandy.module_vitamio.VideoViewDemo;
 import example.andy.com.emandy.opensource.OkhttpHelper;
-
-public class MainActivity extends BaseActivity implements View.OnClickListener{
+import io.vov.vitamio.demo.VitamioListActivity;
+/**
+ * 自动滑动的banner
+ * okhttp的测试
+ * pulltorefresh
+ */
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     static final int MENU_MANUAL_REFRESH = 0;
     static final int MENU_DISABLE_SCROLL = 1;
@@ -72,9 +75,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView lvLeftMenu;
-    private String[] lvs = {"List Item 01", "List Item 02", "List Item 03", "List Item 04"};
     private List<Map<String, Object>> dlList;
-    private ArrayAdapter arrayAdapter;
     private ToolbarAdapter tbAdapter;
 
     @Override
@@ -86,7 +87,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         initData();
     }
 
-    private void initViews(){
+    private void initViews() {
         button = (Button) findViewById(R.id.testServer);
         button.setOnClickListener(this);
         initToolbarAndDrawer();
@@ -94,7 +95,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         initPullToRefresh();
     }
 
-    private void initToolbarAndDrawer(){
+    private void initToolbarAndDrawer() {
         toolbar = (Toolbar) findViewById(R.id.tb_custom);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_left);
         lvLeftMenu = (ListView) findViewById(R.id.lv_left_menu);
@@ -111,6 +112,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
             }
+
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
@@ -120,14 +122,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         dlList = new ArrayList<>();
-        Map<String, Object> tmp = new HashMap<String, Object>();
+        Map<String, Object> tmp = new HashMap<>();
         tmp.put("name", "Vitamio");
         tmp.put("intent", new Intent(MainActivity.this, Vitamio.class));
+        dlList.add(tmp);
 
-        dlList.add(tmp);
-        dlList.add(tmp);
-        dlList.add(tmp);
-        dlList.add(tmp);
+        Map<String, Object> tmp1 = new HashMap<>();
+        tmp1.put("name", "PlayerActivity");
+        tmp1.put("intent", new Intent(MainActivity.this, PlayerActivity.class));
+        dlList.add(tmp1);
+        Map<String, Object> tmp2 = new HashMap<>();
+        tmp2.put("name", "VideoViewDemo");
+        tmp2.put("intent", new Intent(MainActivity.this, VideoViewDemo.class));
+        dlList.add(tmp2);
+        Map<String, Object> tmp3 = new HashMap<>();
+        tmp3.put("name", "VitamioListActivity");
+        tmp3.put("intent", new Intent(MainActivity.this, VitamioListActivity.class));
+        dlList.add(tmp3);
         dlList.add(tmp);
 
         //arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lvs);
@@ -136,13 +147,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         lvLeftMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity((Intent)dlList.get(position).get("intent"));
+                startActivity((Intent) dlList.get(position).get("intent"));
             }
         });
     }
 
     //初始化PullToRefresh
-    private void initPullToRefresh(){
+    private void initPullToRefresh() {
         mPullToRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
 
         //refresh
@@ -182,7 +193,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     }
 
     //初始化rollpager
-    private void initRollPager(){
+    private void initRollPager() {
         mRollPagerView = (RollPagerView) findViewById(R.id.roll_view_pager);
         mRollPagerView.setPlayDelay(1000);
         mRollPagerView.setAnimationDurtion(500);
@@ -191,8 +202,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mRollPagerView.setHintView(new IconHintView(this, R.drawable.point_focus, R.drawable.point_normal));
     }
 
-    private void initData(){
-        OkhttpHelper.getChannelBanner(mContext, new RequestCallback<BannerEntity>(){
+    private void initData() {
+        OkhttpHelper.getChannelBanner(mContext, new RequestCallback<BannerEntity>() {
 
             @Override
             public void onSuccess(BannerEntity response) {
@@ -210,16 +221,55 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
             @Override
             public void onFailure(int errorCode, String errorReason) {
-                Log.e("Andy", errorCode + " "+errorReason);
+                Log.e("Andy", errorCode + " " + errorReason);
             }
         });
     }
+
     int suffix = 1;
+
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if(id == R.id.testServer){
+        if (id == R.id.testServer) {
+            Log.e("Andy", "click");
+            Log.e("Andy", Environment.getExternalStorageDirectory().getAbsolutePath());
+            Log.e("Andy", Environment.getExternalStorageState());
+            Log.e("Andy", Environment.getDataDirectory().getAbsolutePath());
+            Log.e("Andy", Environment.getDownloadCacheDirectory().getAbsolutePath());
+            Log.e("Andy", Environment.getRootDirectory().getAbsolutePath());
+            final File path;
+            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+                path = Environment.getExternalStorageDirectory();
+            }else{
+                Log.e("Andy","没有SD卡");
+                path = Environment.getRootDirectory();
+            }
 
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    traversalFiles(path);
+                }
+            }).start();
+
+        }
+    }
+
+    //遍历指定目录下所有文件 打印mp3, mp4结尾
+    private void traversalFiles(File root){
+
+        File files[] = root.listFiles();
+        if (files != null && files.length != 0){
+            for (File f : files){
+                if (f.isDirectory()){
+                    traversalFiles(f);
+                }else{
+                    String filename = f.getName();
+                    if (filename.trim().toLowerCase().endsWith(".mp4") || filename.trim().toLowerCase().endsWith(".mp3"))
+                        Log.e("Andy", f.getAbsolutePath());
+                }
+            }
         }
     }
 

@@ -1,2 +1,2 @@
-include ':app', ':rollviewpager', ':UIL'
+include ':app', ':rollviewpager', ':UIL', 'Vitamio'
 include ':PullToRefresh'
