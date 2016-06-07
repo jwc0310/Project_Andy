@@ -49,6 +49,7 @@ import example.andy.com.emandy.entity.LevelGrowEntity;
 import example.andy.com.emandy.module_vitamio.PlayerActivity;
 import example.andy.com.emandy.module_vitamio.VideoViewDemo;
 import example.andy.com.emandy.opensource.OkhttpHelper;
+import example.andy.com.pulltorefresh.LauncherActivity;
 import io.vov.vitamio.demo.VitamioListActivity;
 /**
  * 自动滑动的banner
@@ -85,6 +86,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.activity_entry);
         initViews();
         initData();
+
     }
 
     private void initViews() {
@@ -139,7 +141,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         tmp3.put("name", "VitamioListActivity");
         tmp3.put("intent", new Intent(MainActivity.this, VitamioListActivity.class));
         dlList.add(tmp3);
-        dlList.add(tmp);
+
+        Map<String, Object> tmp4 = new HashMap<>();
+        tmp4.put("name", "HomePageActivity");
+        tmp4.put("intent", new Intent(MainActivity.this, HomePageActivity.class));
+        dlList.add(tmp4);
+
+        Map<String, Object> tmp5 = new HashMap<>();
+        tmp5.put("name", "LauncherActivity");
+        tmp5.put("intent", new Intent(MainActivity.this, LauncherActivity.class));
+        dlList.add(tmp5);
 
         //arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lvs);
         tbAdapter = new ToolbarAdapter(mContext, dlList);

@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,15 +22,15 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.analytics.MobclickAgent;
 
-import example.andy.com.emandy.callback.CallBack;
-import example.andy.com.emandy.dialog.LoadingDialog;
 import example.andy.com.emandy.R;
+import example.andy.com.emandy.callback.CallBack;
 import example.andy.com.emandy.customs.SystemBarTintManager;
+import example.andy.com.emandy.dialog.LoadingDialog;
 
 /**
  * Created by robert on 15/7/24.
  */
-public class BaseActivity extends AppCompatActivity {
+public class BaseAndyActivity extends FragmentActivity {
     protected Activity mContext;
     protected TextView title;
     protected LinearLayout contentLayout;
@@ -253,7 +253,7 @@ public class BaseActivity extends AppCompatActivity {
      */
     public void setViewMargin(View view) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            ViewGroup.MarginLayoutParams params = (MarginLayoutParams) view
+            MarginLayoutParams params = (MarginLayoutParams) view
                     .getLayoutParams();
             params.setMargins(0, getStatusBarHeight(), 0, 0);
             view.setLayoutParams(params);

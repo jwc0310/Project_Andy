@@ -51,7 +51,7 @@
         android:gravity="center"
         android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/idolproj_black"
+        android:textColor="@color/black"
         android:text="baseTitle"
         />
 

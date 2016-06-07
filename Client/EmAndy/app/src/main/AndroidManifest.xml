@@ -28,6 +28,7 @@
         <activity android:name=".VitamioTest1"></activity>
         <activity android:name=".module_vitamio.PlayerActivity"></activity>
         <activity android:name=".module_vitamio.VideoViewDemo"></activity>
+        <activity android:name=".HomePageActivity"></activity>
 
         <activity android:name="io.vov.vitamio.demo.VitamioListActivity"></activity>
         <activity android:name="io.vov.vitamio.demo.VideoViewSubtitle"></activity>
@@ -40,6 +41,18 @@
         <activity android:name="io.vov.vitamio.demo.MediaMetadataRetrieverDemo"></activity>
         <activity android:name="io.vov.vitamio.demo.MediaPlayerDemo_Audio"></activity>
         <activity android:name="io.vov.vitamio.demo.MediaPlayerDemo"></activity>
+
+        <activity android:name="example.andy.com.pulltorefresh.LauncherActivity"></activity>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshExpandableListActivity"></activity>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshGridActivity"></activity>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshHorizontalScrollViewActivity"></activity>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshListActivity"></activity>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshListInViewPagerActivity"></activity>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshScrollViewActivity"></activity>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshWebView2Activity"></activity>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshWebViewActivity"></activity>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshListFragmentActivity"></activity>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshViewPagerActivity"></activity>
 
         <meta-data android:value="5746704de0f55a9e30000b03" android:name="UMENG_APPKEY"></meta-data>
         <meta-data android:value="debug" android:name="UMENG_CHANNEL"></meta-data>
