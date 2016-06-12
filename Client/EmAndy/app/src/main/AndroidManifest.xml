@@ -56,6 +56,15 @@
 
         <meta-data android:value="5746704de0f55a9e30000b03" android:name="UMENG_APPKEY"></meta-data>
         <meta-data android:value="debug" android:name="UMENG_CHANNEL"></meta-data>
+
+
+        <!-- 监听网络状态变化的Receiver -->
+        <receiver android:name=".receiver.NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+
+        </receiver>
     </application>
 
 </manifest>
