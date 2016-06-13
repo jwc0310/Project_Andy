@@ -14,6 +14,7 @@ import example.andy.com.emandy.utils.UiUtils;
 public class HomePageActivity extends BaseAndyActivity implements View.OnClickListener{
 
     private TextView home, hot, member, live, me;
+    private HomeFragment homeFragment;
 
     @Override
     public void onCreate(Bundle bundle){
@@ -35,11 +36,19 @@ public class HomePageActivity extends BaseAndyActivity implements View.OnClickLi
         live.setOnClickListener(this);
         me = (TextView) findViewById(R.id.me);
         me.setOnClickListener(this);
-
+        homeFragment = new HomeFragment();
         /**
          * 显示frament
          */
-        UiUtils.changeFragment(this, R.id.fragment_container, ExampleFragment.newInstance(1,"home"));
+        UiUtils.changeFragment(this, R.id.fragment_container, homeFragment);
+        home.setTextColor(getResources().getColor(R.color.idolproj_red_a));
+    }
+    private void clear(){
+        home.setTextColor(getResources().getColor(R.color.idolproj_black_a));
+        hot.setTextColor(getResources().getColor(R.color.idolproj_black_a));
+        member.setTextColor(getResources().getColor(R.color.idolproj_black_a));
+        live.setTextColor(getResources().getColor(R.color.idolproj_black_a));
+        me.setTextColor(getResources().getColor(R.color.idolproj_black_a));
     }
 
     @Override
@@ -48,22 +57,32 @@ public class HomePageActivity extends BaseAndyActivity implements View.OnClickLi
         switch (id){
             case R.id.home:
                 Logger.e("home");
-                UiUtils.changeFragment(this, R.id.fragment_container, ExampleFragment.newInstance(1,"home"));
+                clear();
+                home.setTextColor(getResources().getColor(R.color.idolproj_red_a));
+                UiUtils.changeFragment(this, R.id.fragment_container, homeFragment);
                 break;
             case R.id.hot:
                 Logger.e("hot");
+                clear();
+                hot.setTextColor(getResources().getColor(R.color.idolproj_red_a));
                 UiUtils.changeFragment(this, R.id.fragment_container, ExampleFragment.newInstance(2,"hot"));
                 break;
             case R.id.member:
                 Logger.e("member");
+                clear();
+                member.setTextColor(getResources().getColor(R.color.idolproj_red_a));
                 UiUtils.changeFragment(this, R.id.fragment_container, ExampleFragment.newInstance(3,"member"));
                 break;
             case R.id.live:
                 Logger.e("live");
+                clear();
+                live.setTextColor(getResources().getColor(R.color.idolproj_red_a));
                 UiUtils.changeFragment(this, R.id.fragment_container, ExampleFragment.newInstance(4,"live"));
                 break;
             case R.id.me:
                 Logger.e("me");
+                clear();
+                me.setTextColor(getResources().getColor(R.color.idolproj_red_a));
                 UiUtils.changeFragment(this, R.id.fragment_container, ExampleFragment.newInstance(5,"me"));
                 break;
             default:

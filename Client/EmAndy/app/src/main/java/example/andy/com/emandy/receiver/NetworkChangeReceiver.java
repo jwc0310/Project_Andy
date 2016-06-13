@@ -12,13 +12,20 @@ import example.andy.com.emandy.utils.NetworkUtil;
 
 /**
  * 观察者模式使用
+ * 静态注册广播，添加观察者
  * Created by Andy on 16/6/12.
  */
 public class NetworkChangeReceiver extends BroadcastReceiver {
 
     private static NetworkChangeReceiver myReceiver;
 
+    /**
+     * 网络是否可用
+     */
     private static Boolean networkAvailable = false;
+    /**
+     * 可用时网络类型
+     */
     private static NetworkUtil.NetType netType;
 
     private static BroadcastReceiver getReceiver(){

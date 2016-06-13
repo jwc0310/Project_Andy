@@ -15,10 +15,11 @@ public class EmandyApplicaiton extends Application {
     public void onCreate() {
         super.onCreate();
         appInstance = this;
-
         //初始化UIL
         UILHelper.init(getApplicationContext());
 
+        //网络状态变化BroadcastReceiver
+        //在Manifest中静态注册
     }
 
 }

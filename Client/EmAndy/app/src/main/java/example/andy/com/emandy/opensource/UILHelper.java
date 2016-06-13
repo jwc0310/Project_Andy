@@ -62,7 +62,7 @@ public class UILHelper {
         instance.init(configuration);
     }
 
-    public class DisplayOption{
+    public class DisplayOptions {
 
         public final DisplayImageOptions GAO_NENG = new DisplayImageOptions.Builder()
                 .showImageForEmptyUri(R.mipmap.placeholder_100)

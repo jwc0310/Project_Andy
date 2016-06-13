@@ -11,13 +11,19 @@ import example.andy.com.emandy.constants.CommonVars;
  */
 public class UiUtils {
 
+    /**
+     * 替换fragment
+     * @param activity
+     * @param resid
+     * @param fragment
+     */
     public static void changeFragment(FragmentActivity activity, int resid, BaseFragment fragment){
         FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
 
         String current_page = fragment.getClass().getName();
 
         if(CommonVars.CURRENT_HOME_PAGE.equals(current_page)){
-            //return;
+            return;
         }
         ft.replace(resid, fragment);
         ft.commit();

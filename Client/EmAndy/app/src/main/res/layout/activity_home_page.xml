@@ -23,6 +23,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:textColor="@color/idolproj_black_a"
             android:text="首页"/>
         <TextView
             android:id="@+id/hot"
@@ -30,6 +31,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:textColor="@color/idolproj_black_a"
             android:text="热点"/>
         <TextView
             android:id="@+id/member"
@@ -37,6 +39,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:textColor="@color/idolproj_black_a"
             android:text="VIP会员"/>
         <TextView
             android:id="@+id/live"
@@ -44,6 +47,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:textColor="@color/idolproj_black_a"
             android:text="直播"/>
         <TextView
             android:id="@+id/me"
@@ -51,6 +55,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:textColor="@color/idolproj_black_a"
             android:text="我的"/>
 
     </LinearLayout>
