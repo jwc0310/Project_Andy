@@ -15,6 +15,7 @@ public class HomePageActivity extends BaseAndyActivity implements View.OnClickLi
 
     private TextView home, hot, member, live, me;
     private HomeFragment homeFragment;
+    private HotFragment hotFragment;
 
     @Override
     public void onCreate(Bundle bundle){
@@ -37,6 +38,7 @@ public class HomePageActivity extends BaseAndyActivity implements View.OnClickLi
         me = (TextView) findViewById(R.id.me);
         me.setOnClickListener(this);
         homeFragment = new HomeFragment();
+        hotFragment = new HotFragment();
         /**
          * 显示frament
          */
@@ -65,7 +67,7 @@ public class HomePageActivity extends BaseAndyActivity implements View.OnClickLi
                 Logger.e("hot");
                 clear();
                 hot.setTextColor(getResources().getColor(R.color.idolproj_red_a));
-                UiUtils.changeFragment(this, R.id.fragment_container, ExampleFragment.newInstance(2,"hot"));
+                UiUtils.changeFragment(this, R.id.fragment_container, hotFragment);
                 break;
             case R.id.member:
                 Logger.e("member");

@@ -51,12 +51,14 @@ class LooperAdapter extends LoopPagerAdapter {
         view.setScaleType(ImageView.ScaleType.CENTER_CROP);
         view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));
-        imageLoader.displayImage(list.get(position).getResource(), view);
+        view.setImageResource(imgs[position]);
+        //imageLoader.displayImage(list.get(position).getResource(), view);
         return view;
     }
 
     @Override
     public int getRealCount(){
-        return list.size();
+        //return list.size();
+        return imgs.length;
     }
 }

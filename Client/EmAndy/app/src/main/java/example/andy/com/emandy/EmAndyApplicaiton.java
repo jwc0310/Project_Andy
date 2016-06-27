@@ -7,7 +7,7 @@ import example.andy.com.emandy.opensource.UILHelper;
 /**
  * Created by Andy on 16/5/25.
  */
-public class EmandyApplicaiton extends Application {
+class EmandyApplicaiton extends Application {
 
     public static EmandyApplicaiton appInstance;
 
