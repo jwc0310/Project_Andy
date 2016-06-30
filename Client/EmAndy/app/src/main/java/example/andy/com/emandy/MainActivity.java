@@ -49,6 +49,7 @@ import example.andy.com.emandy.entity.LevelGrowEntity;
 import example.andy.com.emandy.module_vitamio.PlayerActivity;
 import example.andy.com.emandy.module_vitamio.VideoViewDemo;
 import example.andy.com.emandy.opensource.OkhttpHelper;
+import example.andy.com.emandy.retrofit.RetrofitHelper;
 import example.andy.com.pulltorefresh.LauncherActivity;
 import io.vov.vitamio.demo.VitamioListActivity;
 /**
@@ -243,26 +244,28 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.testServer) {
-            Log.e("Andy", "click");
-            Log.e("Andy", Environment.getExternalStorageDirectory().getAbsolutePath());
-            Log.e("Andy", Environment.getExternalStorageState());
-            Log.e("Andy", Environment.getDataDirectory().getAbsolutePath());
-            Log.e("Andy", Environment.getDownloadCacheDirectory().getAbsolutePath());
-            Log.e("Andy", Environment.getRootDirectory().getAbsolutePath());
-            final File path;
-            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
-                path = Environment.getExternalStorageDirectory();
-            }else{
-                Log.e("Andy","没有SD卡");
-                path = Environment.getRootDirectory();
-            }
 
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    traversalFiles(path);
-                }
-            }).start();
+            RetrofitHelper.getInstance().getProducts();
+//            Log.e("Andy", "click");
+//            Log.e("Andy", Environment.getExternalStorageDirectory().getAbsolutePath());
+//            Log.e("Andy", Environment.getExternalStorageState());
+//            Log.e("Andy", Environment.getDataDirectory().getAbsolutePath());
+//            Log.e("Andy", Environment.getDownloadCacheDirectory().getAbsolutePath());
+//            Log.e("Andy", Environment.getRootDirectory().getAbsolutePath());
+//            final File path;
+//            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+//                path = Environment.getExternalStorageDirectory();
+//            }else{
+//                Log.e("Andy","没有SD卡");
+//                path = Environment.getRootDirectory();
+//            }
+//
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    traversalFiles(path);
+//                }
+//            }).start();
 
         }
     }

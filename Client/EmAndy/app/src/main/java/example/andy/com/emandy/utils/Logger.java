@@ -20,6 +20,9 @@ public class Logger {
     }
 
     public static void e(String log){
+        if (log == null){
+            log = "";
+        }
         if (debug){
             Log.e(tag, log);
         }
