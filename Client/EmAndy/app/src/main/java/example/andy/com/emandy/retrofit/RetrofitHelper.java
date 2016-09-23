@@ -56,7 +56,7 @@ public class RetrofitHelper {
             @Override
             public void onResponse(Call<HotGames> call, Response<HotGames> response) {
                 Logger.e("success !");
-                if (response.isSuccessful()){
+                if (response.isSuccess()){
                     HotGames products = response.body();
                     if (products != null){
                         for (HotGames.ApkBean bean : products.getApk()){

@@ -51,6 +51,8 @@ import example.andy.com.emandy.opensource.OkhttpHelper;
 import example.andy.com.emandy.retrofit.RetrofitHelper;
 import example.andy.com.pulltorefresh.LauncherActivity;
 import io.vov.vitamio.demo.VitamioListActivity;
+import mvprxr.MvpActivity;
+
 /**
  * 自动滑动的banner
  * okhttp的测试
@@ -151,6 +153,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         tmp5.put("name", "LauncherActivity");
         tmp5.put("intent", new Intent(MainActivity.this, LauncherActivity.class));
         dlList.add(tmp5);
+
+        Map<String, Object> tmp6 = new HashMap<>();
+        tmp6.put("name", "MvpActivity");
+        tmp6.put("intent", new Intent(MainActivity.this, MvpActivity.class));
+        dlList.add(tmp6);
 
         //arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lvs);
         tbAdapter = new ToolbarAdapter(mContext, dlList);

@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="example.andy.com.emandy">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".EmandyApplicaiton"
@@ -23,39 +23,40 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Vitamio"></activity>
-        <activity android:name=".VitamioTest"></activity>
-        <activity android:name=".VitamioTest1"></activity>
-        <activity android:name=".module_vitamio.PlayerActivity"></activity>
-        <activity android:name=".module_vitamio.VideoViewDemo"></activity>
-        <activity android:name=".HomePageActivity"></activity>
+        <activity android:name=".Vitamio"/>
+        <activity android:name=".VitamioTest"/>
+        <activity android:name=".VitamioTest1"/>
+        <activity android:name=".module_vitamio.PlayerActivity"/>
+        <activity android:name=".module_vitamio.VideoViewDemo"/>
+        <activity android:name=".HomePageActivity"/>
 
-        <activity android:name="io.vov.vitamio.demo.VitamioListActivity"></activity>
-        <activity android:name="io.vov.vitamio.demo.VideoViewSubtitle"></activity>
-        <activity android:name="io.vov.vitamio.demo.VideoViewDemo"></activity>
-        <activity android:name="io.vov.vitamio.demo.VideoViewBuffer"></activity>
-        <activity android:name="io.vov.vitamio.demo.VideoSubtitleList"></activity>
-        <activity android:name="io.vov.vitamio.demo.MediaPlayerSubtitle"></activity>
-        <activity android:name="io.vov.vitamio.demo.MediaPlayerDemo_Video"></activity>
-        <activity android:name="io.vov.vitamio.demo.MediaPlayerDemo_setSurface"></activity>
-        <activity android:name="io.vov.vitamio.demo.MediaMetadataRetrieverDemo"></activity>
-        <activity android:name="io.vov.vitamio.demo.MediaPlayerDemo_Audio"></activity>
-        <activity android:name="io.vov.vitamio.demo.MediaPlayerDemo"></activity>
+        <activity android:name="io.vov.vitamio.demo.VitamioListActivity"/>
+        <activity android:name="io.vov.vitamio.demo.VideoViewSubtitle"/>
+        <activity android:name="io.vov.vitamio.demo.VideoViewDemo"/>
+        <activity android:name="io.vov.vitamio.demo.VideoViewBuffer"/>
+        <activity android:name="io.vov.vitamio.demo.VideoSubtitleList"/>
+        <activity android:name="io.vov.vitamio.demo.MediaPlayerSubtitle"/>
+        <activity android:name="io.vov.vitamio.demo.MediaPlayerDemo_Video"/>
+        <activity android:name="io.vov.vitamio.demo.MediaPlayerDemo_setSurface"/>
+        <activity android:name="io.vov.vitamio.demo.MediaMetadataRetrieverDemo"/>
+        <activity android:name="io.vov.vitamio.demo.MediaPlayerDemo_Audio"/>
+        <activity android:name="io.vov.vitamio.demo.MediaPlayerDemo"/>
 
-        <activity android:name="example.andy.com.pulltorefresh.LauncherActivity"></activity>
-        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshExpandableListActivity"></activity>
-        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshGridActivity"></activity>
-        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshHorizontalScrollViewActivity"></activity>
-        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshListActivity"></activity>
-        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshListInViewPagerActivity"></activity>
-        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshScrollViewActivity"></activity>
-        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshWebView2Activity"></activity>
-        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshWebViewActivity"></activity>
-        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshListFragmentActivity"></activity>
-        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshViewPagerActivity"></activity>
+        <activity android:name="example.andy.com.pulltorefresh.LauncherActivity"/>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshExpandableListActivity"/>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshGridActivity"/>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshHorizontalScrollViewActivity"/>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshListActivity"/>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshListInViewPagerActivity"/>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshScrollViewActivity"/>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshWebView2Activity"/>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshWebViewActivity"/>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshListFragmentActivity"/>
+        <activity android:name="example.andy.com.pulltorefresh.PullToRefreshViewPagerActivity"/>
+        <activity android:name="mvprxr.MvpActivity"/>
 
-        <meta-data android:value="5746704de0f55a9e30000b03" android:name="UMENG_APPKEY"></meta-data>
-        <meta-data android:value="debug" android:name="UMENG_CHANNEL"></meta-data>
+        <meta-data android:value="5746704de0f55a9e30000b03" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="debug" android:name="UMENG_CHANNEL"/>
 
 
         <!-- 监听网络状态变化的Receiver -->

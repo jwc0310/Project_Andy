@@ -36,7 +36,7 @@ public class RequestUtil {
         call.enqueue(new Callback<HotGames>() {
             @Override
             public void onResponse(Call<HotGames> call, Response<HotGames> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccess()){
                     HotGames hotGames = response.body();
                     if (hotGames != null){
                         callback.onSuccess(hotGames.getApk());
@@ -84,7 +84,7 @@ public class RequestUtil {
         call.enqueue(new Callback<HotSearch>() {
             @Override
             public void onResponse(Call<HotSearch> call, Response<HotSearch> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccess()){
                     HotSearch hotSearch = response.body();
                     if (hotSearch != null){
                         callback.onSuccess(hotSearch);
