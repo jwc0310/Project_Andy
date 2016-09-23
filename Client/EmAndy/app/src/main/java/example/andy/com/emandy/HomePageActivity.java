@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import example.andy.com.emandy.ExampleFragment;
+import example.andy.com.emandy.HomeFragment;
+import example.andy.com.emandy.HotFragment;
+import example.andy.com.emandy.R;
 import example.andy.com.emandy.base.BaseAndyActivity;
 import example.andy.com.emandy.utils.Logger;
 import example.andy.com.emandy.utils.UiUtils;

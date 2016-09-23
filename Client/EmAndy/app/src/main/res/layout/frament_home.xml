@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/title_rl"
@@ -25,24 +26,29 @@
             />
 
     </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/test1"
+            android:layout_width="60dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:text="测试1"/>
+        <Button
+            android:id="@+id/test2"
+            android:layout_width="60dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:text="测试2"/>
+        <Button
+            android:id="@+id/test3"
+            android:layout_width="60dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:text="测试3"/>
 
-    <com.handmark.pulltorefresh.library.PullToRefreshListView
-        xmlns:ptr="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/pull_refresh_grid"
-        android:layout_height="fill_parent"
-        android:layout_width="fill_parent"
-        android:layout_below="@+id/title_rl"
-        android:paddingLeft="6dp"
-        android:paddingRight="6dp"
-        android:numColumns="2"
-        android:verticalSpacing="1dp"
-        android:horizontalSpacing="1dp"
-        android:columnWidth="100dp"
-        android:stretchMode="columnWidth"
-        android:gravity="fill"
-        ptr:ptrMode="both"
-        ptr:ptrDrawable="@mipmap/ic_launcher" />
+    </LinearLayout>
 
-
-
-</RelativeLayout>
+</LinearLayout>

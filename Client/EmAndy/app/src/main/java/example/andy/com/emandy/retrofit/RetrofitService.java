@@ -34,6 +34,4 @@ public interface RetrofitService {
     @GET("market/360list")
     Call<HotSearch> getHotSearch(@Query("action") String action);
 
-
-
 }
